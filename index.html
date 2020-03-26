@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>FullClock</title>
+        <meta name="description" content="simple fullscreen clock" />
+        <meta name="theme-color" content="#303630" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/icons/icon.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/180.png" />
+        <script src="/clock.js" defer></script>
+        <style>
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #303630;
+}
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+path {
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+.dial-5 {
+    stroke: #ff0080;
+}
+.dial-15 {
+    stroke: white;
+}
+line {
+    stroke: #eee;
+    stroke-linecap: round;
+}
+line.hour {
+    transition: transform .8s ease;
+}
+line.minute {
+    transition: transform .4s ease;
+}
+line.second {
+    transition: transform .1s ease;
+    stroke: #ff0080;
+}
+line.smooth {
+    stroke: #ff0080;
+    opacity: .5;
+}
+svg line[data-is-zero='true'] {
+    transition: none;
+}
+
+tspan.hour {
+    fill: #a08070;
+}
+tspan.minute {
+    fill: #808084;
+}
+
+#icon {
+    display: none;
+}
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <svg width="400" height="100" viewBox="-200 -50 400 100" preserveAspectRatio="xMidYMid">
+                <text text-anchor="middle" dominant-baseline="hanging" y="-50" font-size="100">
+                    <tspan class="hour">00</tspan>
+                    <tspan class="minute">00</tspan>
+                </text>
+            </svg>
+            <svg width="500" height="500" viewBox="-250 -250 500 500" preserveAspectRatio="xMidYMid">
+                <path
+                    class="dial-15"
+                    d="M    0 -250 v  20
+                       M  250    0 h -20
+                       M    0  250 v -20
+                       M -250    0 h  20" />
+
+                <path
+                    class="dial-5"
+                    d="M  216.5  125.0 L  207.8  120.0
+                       M  125.0  216.5 L  120.0  207.8
+                       M -125.0  216.5 L -120.0  207.8
+                       M -217.5  125.0 L -208.2  120.0
+                       M -217.5 -125.0 L -208.2 -120.0
+                       M -125.0 -217.5 L -120.0 -208.2
+                       M  125.0 -217.5 L  120.0 -208.2
+                       M  216.5 -125.0 L  207.8 -120.0" />
+
+                <line class="hour"   x1="0" y1="0" x2="0" y2="-140" stroke-width="6" />
+                <line class="minute" x1="0" y1="0" x2="0" y2="-200" stroke-width="4" />
+                <line class="smooth" x1="0" y1="0" x2="0" y2="-210" stroke-width="2" />
+                <line class="second" x1="0" y1="0" x2="0" y2="-210" stroke-width="2" />
+            </svg>
+        </main>
+
+        <svg id="icon" xmlns="http://www.w3.org/2000/svg" version="1.0" width="500" height="500" viewBox="-250 -250 500 500" preserveAspectRatio="xMidYMid">
+            <rect x="-250" y="-250" width="500" height="500" rx="100" ry="100" fill="#303630" />
+
+            <line class="hour"   x1="0" y1="0" x2="0" y2="-140" stroke-linecap="round" stroke-width="48" stroke="#eee" transform="rotate(300)" />
+            <line class="minute" x1="0" y1="0" x2="0" y2="-200" stroke-linecap="round" stroke-width="36" stroke="#eee" transform="rotate(60)" />
+        </svg>
+
+        <script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(reg => {
+        console.log('sw.js registered');
+    }).catch(err => {
+        console.error('sw.jw register failed');
+    });
+}
+        </script>
+    </body>
+</html>
