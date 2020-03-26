@@ -1,9 +1,11 @@
+const analog = document.querySelector('svg#analog');
+
 const hourLines = [...document.querySelectorAll('line.hour')];
 const minuteLines = [...document.querySelectorAll('line.minute')];
 const secondLine = document.querySelector('line.second');
 const smoothSecondLine = document.querySelector('line.smooth');
 
-const icon = document.querySelector('#icon');
+const icon = document.querySelector('svg#icon');
 
 const hourText = document.querySelector('tspan.hour');
 const minuteText = document.querySelector('tspan.minute');
@@ -12,19 +14,26 @@ const minuteText = document.querySelector('tspan.minute');
 const rendering = () => {
     const now = new Date();
 
-    const hour = now.getHours()%12 / 12;
+    if (400 <= now.getMilliseconds() && now.getMilliseconds() <= 600) {
+        analog.classList.add('stop-motion');
+    } else {
+        analog.classList.remove('stop-motion');
+    }
+
+    let hour = now.getHours()%12 / 12;
+    if (hour === 0 && now.getMilliseconds() < 500) hour = 1;
     hourLines.map(elm => elm.setAttribute('transform', `rotate(${hour * 360})`));
-    hourLines[0].dataset['isZero']= hour === 0;
 
-    const minute = now.getMinutes()/60;
+    let minute = now.getMinutes()/60;
+    if (minute === 0 && now.getMilliseconds() < 500) minute = 1;
     minuteLines.map(elm => elm.setAttribute('transform', `rotate(${minute * 360})`));
-    minuteLines[0].dataset['isZero']= minute === 0;
 
-    const second = now.getSeconds()/60;
+    let second = now.getSeconds()/60;
+    if (second === 0 && now.getMilliseconds() < 500) second = 1;
     secondLine.setAttribute('transform', `rotate(${second * 360})`);
-    secondLine.dataset['isZero']= second === 0;
 
     const smoothSecond = now.getSeconds()/60 + now.getMilliseconds()/1000/60;
+    if (smoothSecond === 0 && now.getMilliseconds() < 500) smoothSecond = 1;
     smoothSecondLine.setAttribute('transform', `rotate(${smoothSecond * 360})`);
 
     hourText.innerHTML = String(now.getHours()).padStart(2, ' ');
