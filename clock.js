@@ -46,8 +46,8 @@ setTimeout(rendering, 10);
 
 
 const updateIcon = () => {
-    document.querySelector('link[rel="icon"]').href = 'data:image/svg+xml,' + encodeURIComponent(icon.outerHTML);
+    document.querySelector('link[rel="icon"][type="image/svg+xml"]').href = 'data:image/svg+xml,' + encodeURIComponent(icon.outerHTML);
 };
 
-updateIcon();
+setTimeout(updateIcon, 100);
 setInterval(updateIcon, 10*1000);

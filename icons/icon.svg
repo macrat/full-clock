@@ -3,24 +3,26 @@
 
     <path
         stroke="white"
-        stroke-width="4"
-        d="M    0 -250 v  20
-           M  250    0 h -20
-           M    0  250 v -20
-           M -250    0 h  20" />
+        stroke-width="8"
+        stroke-linecap="round"
+        d="M    0 -250 v  40
+           M  250    0 h -40
+           M    0  250 v -40
+           M -250    0 h  40" />
     <path
         stroke="#ff0080"
-        stroke-width="4"
-        d="M  216.5  125.0 L  207.8  120.0
-           M  125.0  216.5 L  120.0  207.8
-           M -125.0  216.5 L -120.0  207.8
-           M -217.5  125.0 L -208.2  120.0
-           M -217.5 -125.0 L -208.2 -120.0
-           M -125.0 -217.5 L -120.0 -208.2
-           M  125.0 -217.5 L  120.0 -208.2
-           M  216.5 -125.0 L  207.8 -120.0" />
+        stroke-width="8"
+        stroke-linecap="round"
+        d="M  207.8  120.0 L  181.9  105.0
+           M  120.0  207.8 L  105.0  181.9
+           M -120.0  207.8 L -105.0  181.9
+           M -207.8  120.0 L -181.9  105.0
+           M -207.8 -120.0 L -181.9 -105.0
+           M -120.0 -207.8 L -105.0 -181.9
+           M  120.0 -207.8 L  105.0 -181.9
+           M  207.8 -120.0 L  181.9 -105.0" />
 
-    <line x1="0" y1="0" x2="0" y2="-140" stroke-linecap="round" stroke-width="12" stroke="#eee" transform="rotate(300)" />
-    <line x1="0" y1="0" x2="0" y2="-200" stroke-linecap="round" stroke-width="8" stroke="#eee" transform="rotate(60)" />
-    <line x1="0" y1="0" x2="0" y2="-210" stroke-linecap="round" stroke-width="4" stroke="#ff0080" transform="rotate(18)" />
+    <line x1="0" y1="0" x2="0" y2="-100" stroke-linecap="round" stroke-width="12" stroke="#eee" transform="rotate(300)" />
+    <line x1="0" y1="0" x2="0" y2="-180" stroke-linecap="round" stroke-width="8" stroke="#eee" transform="rotate(60)" />
+    <line x1="0" y1="0" x2="0" y2="-190" stroke-linecap="round" stroke-width="4" stroke="#ff0080" transform="rotate(18)" />
 </svg>
