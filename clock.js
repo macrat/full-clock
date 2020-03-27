@@ -21,19 +21,18 @@ const rendering = () => {
     }
 
     let second = now.getSeconds()/60;
-    if (second === 0 && now.getMilliseconds() < 500) second = 1;
+    if (now.getSeconds() === 0 && now.getMilliseconds() < 500) second = 1;
     secondLine.setAttribute('transform', `rotate(${second * 360})`);
 
     let minute = now.getMinutes()/60;
-    if (minute === 0 && second === 0 && now.getMilliseconds() < 500) minute = 1;
+    if (now.getMinutes() === 0 && now.getSeconds() === 0 && now.getMilliseconds() < 500) minute = 1;
     minuteLines.map(elm => elm.setAttribute('transform', `rotate(${minute * 360})`));
 
-    let hour = now.getHours()%12 / 12;
-    if (hour === 0 && minute === 0 && second === 0 && now.getMilliseconds() < 500) hour = 1;
+    let hour = now.getHours()%12 / 12 + now.getMinutes()/60/12;
+    if (now.getHours() === 0 && now.getMinutes() === 0 && now.getSeconds() === 0 && now.getMilliseconds() < 500) hour = 1;
     hourLines.map(elm => elm.setAttribute('transform', `rotate(${hour * 360})`));
 
     const smoothSecond = now.getSeconds()/60 + now.getMilliseconds()/1000/60;
-    if (smoothSecond === 0 && now.getMilliseconds() < 500) smoothSecond = 1;
     smoothSecondLine.setAttribute('transform', `rotate(${smoothSecond * 360})`);
 
     [hourTexts[0].innerHTML, hourTexts[1].innerHTML] = String(now.getHours()).padStart(2, ' ');
