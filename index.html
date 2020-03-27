@@ -17,13 +17,35 @@ body {
     height: 100%;
     background-color: #303630;
 }
-svg {
+div, svg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
+
+div {
+    font-size: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+span.hour, span.minute {
+    display: inline-block;
+    margin: 0 2vw;
+}
+span.hour {
+    color: #a08070;
+}
+span.minute {
+    color: #808084;
+}
+span > span {
+    display: inline-block;
+    width: 13vw;
+}
+
 path {
     stroke-width: 2;
     stroke-linecap: round;
@@ -56,13 +78,6 @@ svg#analog.stop-motion line {
     transition: none;
 }
 
-tspan.hour {
-    fill: #a08070;
-}
-tspan.minute {
-    fill: #808084;
-}
-
 #icon {
     display: none;
 }
@@ -71,12 +86,10 @@ tspan.minute {
 
     <body>
         <main>
-            <svg width="400" height="100" viewBox="-200 -50 400 100" preserveAspectRatio="xMidYMid">
-                <text text-anchor="middle" dominant-baseline="hanging" y="-50" font-size="100">
-                    <tspan class="hour">00</tspan>
-                    <tspan class="minute">00</tspan>
-                </text>
-            </svg>
+            <div id="digital">
+                <span class="hour"><span>-</span><span>-</span></span>
+                <span class="minute"><span>-</span><span>-</span></span>
+            </div>
             <svg id="analog" width="500" height="500" viewBox="-250 -250 500 500" preserveAspectRatio="xMidYMid">
                 <path
                     class="dial-15"

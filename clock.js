@@ -7,8 +7,8 @@ const smoothSecondLine = document.querySelector('line.smooth');
 
 const icon = document.querySelector('svg#icon');
 
-const hourText = document.querySelector('tspan.hour');
-const minuteText = document.querySelector('tspan.minute');
+const hourTexts = document.querySelectorAll('span.hour span');
+const minuteTexts = document.querySelectorAll('span.minute span');
 
 
 const rendering = () => {
@@ -36,8 +36,8 @@ const rendering = () => {
     if (smoothSecond === 0 && now.getMilliseconds() < 500) smoothSecond = 1;
     smoothSecondLine.setAttribute('transform', `rotate(${smoothSecond * 360})`);
 
-    hourText.innerHTML = String(now.getHours()).padStart(2, ' ');
-    minuteText.innerHTML = String(now.getMinutes()).padStart(2, '0');
+    [hourTexts[0].innerHTML, hourTexts[1].innerHTML] = String(now.getHours()).padStart(2, ' ');
+    [minuteTexts[0].innerHTML, minuteTexts[1].innerHTML] = String(now.getMinutes()).padStart(2, '0');
 
     requestAnimationFrame(rendering);
 };
