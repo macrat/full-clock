@@ -2,42 +2,22 @@
   "name": "FullClock",
   "short_name": "FullClock",
   "description": "simple full screen clock",
-  "icons": [{
-    "src": "/icons/96.png",
-    "sizes": "96x96",
-    "purpose": "maskable any",
-    "type": "image/png"
-  }, {
-    "src": "/icons/144.png",
-    "sizes": "144x144",
-    "purpose": "maskable any",
-    "type": "image/png"
-  }, {
-    "src": "/icons/180.png",
-    "sizes": "180x180",
-    "purpose": "maskable any",
-    "type": "image/png"
-  }, {
-    "src": "/icons/192.png",
-    "sizes": "192x192",
-    "purpose": "maskable any",
-    "type": "image/png"
-  }, {
-    "src": "/icons/256.png",
-    "sizes": "256x256",
-    "purpose": "maskable any",
-    "type": "image/png"
-  }, {
-    "src": "/icons/512.png",
-    "sizes": "512x512",
-    "purpose": "maskable any",
-    "type": "image/png"
-  }, {
-    "src": "/icons/icon.svg",
-    "sizes": "any",
-    "purpose": "maskable any",
-    "type": "image/svg+xml"
-  }],
+  "icons": [
+    {"purpose": "any", "type": "image/png", "src": "/icons/96.png", "sizes": "96x96"},
+    {"purpose": "any", "type": "image/png", "src": "/icons/144.png", "sizes": "144x144"},
+    {"purpose": "any", "type": "image/png", "src": "/icons/180.png", "sizes": "180x180"},
+    {"purpose": "any", "type": "image/png", "src": "/icons/192.png", "sizes": "192x192"},
+    {"purpose": "any", "type": "image/png", "src": "/icons/256.png", "sizes": "256x256"},
+    {"purpose": "any", "type": "image/png", "src": "/icons/512.png", "sizes": "512x512"},
+    {"purpose": "any", "type": "image/svg+xml", "src": "/icons/icon.svg", "sizes": "any"},
+    {"purpose": "maskable", "type": "image/png", "src": "/icons/96-maskable.png", "sizes": "96x96"},
+    {"purpose": "maskable", "type": "image/png", "src": "/icons/144-maskable.png", "sizes": "144x144"},
+    {"purpose": "maskable", "type": "image/png", "src": "/icons/180-maskable.png", "sizes": "180x180"},
+    {"purpose": "maskable", "type": "image/png", "src": "/icons/192-maskable.png", "sizes": "192x192"},
+    {"purpose": "maskable", "type": "image/png", "src": "/icons/256-maskable.png", "sizes": "256x256"},
+    {"purpose": "maskable", "type": "image/png", "src": "/icons/512-maskable.png", "sizes": "512x512"},
+    {"purpose": "maskable", "type": "image/svg+xml", "src": "/icons/maskable.svg", "sizes": "any"}
+  ],
   "start_url": "/",
   "display": "fullscreen",
   "background_color": "#303630",
